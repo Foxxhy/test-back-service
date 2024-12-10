@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commands",
+  "info": {
+    "singularName": "command",
+    "pluralName": "commands",
+    "displayName": "Command"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "commandAt": {
+      "type": "datetime"
+    },
+    "messages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::message.message"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "commandStatus": {
+      "type": "enumeration",
+      "enum": [
+        "received",
+        "wip",
+        "done",
+        "other"
+      ]
+    },
+    "commandPayment": {
+      "type": "boolean"
+    }
+  }
+}
